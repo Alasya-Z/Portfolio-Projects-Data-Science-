@@ -8,10 +8,10 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 | Project | Question | Methods | Best Result |
 |---|---|---|---|
-| [Predicting Workplace Absenteeism](./absenteeism-prediction) | Can we predict how much and how often employees are absent? | Multiple linear regression, KNN, logistic regression, decision trees (R) | Pruned decision tree, 78% test accuracy |
-| [Financial Stress Detection](./financial-stress-nlp) | Can deep learning detect financial stress in Reddit posts? | Custom Word2Vec embeddings, CNN, BiLSTM (PyTorch) | CNN, 64.3% accuracy / 0.640 F1 |
-| [Health Insurance Coverage in the US](./health-insurance-coverage) | Which groups are most likely to lack health insurance? | EDA and logistic regression on ACS microdata (R) | Veteran status, employment, and marriage strongly predict coverage; Hispanic individuals and men less likely to be insured |
-| [Topic Modeling on Amazon Reviews](./topic-modeling-amazon-reviews) | What themes emerge from 20,000 product reviews? | TF-IDF, NMF, LDA (Python) | Five interpretable topics recovered without labels |
+| [Predicting Workplace Absenteeism | Can we predict how much and how often employees are absent? | Multiple linear regression, KNN, logistic regression, decision trees (R) | Pruned decision tree, 78% test accuracy |
+| [Financial Stress Detection | Can deep learning detect financial stress in Reddit posts? | Custom Word2Vec embeddings, CNN, BiLSTM (PyTorch) | CNN, 64.3% accuracy / 0.640 F1 |
+| [Health Insurance Coverage in the US Which groups are most likely to lack health insurance? | EDA and logistic regression on ACS microdata (R) | Veteran status, employment, and marriage strongly predict coverage; Hispanic individuals and men less likely to be insured |
+| [Topic Modeling on Amazon Reviews | What themes emerge from 20,000 product reviews? | TF-IDF, NMF, LDA (Python) | Five interpretable topics recovered without labels |
 
 **Tools:** R (tidyverse, ggplot2), Python (PyTorch, scikit-learn, gensim, NLTK, pandas), Stata, SQL
 
@@ -34,7 +34,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 **Skills:** model comparison, cross-validation, feature preprocessing, avoiding data leakage in train/test scaling, communicating tradeoffs between accuracy and interpretability.
 
-📄 [Project slides (PDF)](./absenteeism-prediction/predicting-workplace-absenteeism.pdf)
+📄 [Project slides (PDF)](./predicting-workplace-absenteeism.pdf)
 
 ### 2. Financial Stress Detection Using Reddit Data
 *Python, PyTorch | Deep learning NLP*
@@ -51,7 +51,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 **Skills:** neural network architecture design, embedding training, overfitting diagnosis, error analysis, honest reporting of model limitations.
 
-📄 [Project slides (PDF)](./financial-stress-nlp/financial-stress-detection-slides.pdf) · 💻 [Full notebook (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/data-science-portfolio/blob/main/financial-stress-nlp/financial-stress-detection-notebook.html)
+📄 [Project slides (PDF)](./financial-stress-detection-slides.pdf) · 💻 [Full notebook (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/financial-stress-detection-notebook.html)
 
 ### 3. Health Insurance Coverage in the US
 *R | EDA and logistic regression on survey microdata*
@@ -62,13 +62,13 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 - Built a custom IPUMS extract with variables on coverage, income, employment, citizenship, and demographics
 - Cleaned placeholder codes and missing values, then recoded categorical variables into analysis-ready binary formats
 - Ran exploratory analysis of coverage rates across income, race, sex, and employment groups
-- Fit a logistic regression predicting insurance coverage and interpreted coefficients in policy terms
+- Fit a logistic regression predicting insurance coverage and interpret coefficients in policy terms
 
 **Takeaways.** Veteran status, employment, and marriage show the strongest positive effects on coverage. Hispanic individuals and men are less likely to be insured even after controlling for income and age. Income itself matters less than expected, likely because Medicaid covers many low-income individuals. The results point to specific communities that could benefit from targeted outreach.
 
 **Skills:** large-scale survey microdata (IPUMS/ACS), data cleaning and recoding, EDA, regression interpretation, translating statistical results into policy implications.
 
-📄 [Written report (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/data-science-portfolio/blob/main/health-insurance-coverage/health-insurance-coverage-report.html)
+📄 [Written report (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/health-insurance-coverage-report.html)
 
 ### 4. Topic Modeling on Amazon Reviews
 *Python | Unsupervised NLP (side project)*
@@ -79,7 +79,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 **Skills:** text vectorization, dimensionality reduction, unsupervised learning, model interpretability.
 
-📄 [Notebook (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/data-science-portfolio/blob/main/topic-modeling-amazon-reviews/topic-modeling-amazon-reviews.html)
+📄 [Notebook (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/topic-modeling-amazon-reviews.html)
 
 ---
 
@@ -87,5 +87,5 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 I graduated from American University in May 2026 with degrees in Economics and Data Science. My interests center on labor markets, economic mobility, housing, and income inequality, and I like projects where careful data work leads to conclusions people can actually act on.
 
-**Contact:** az5922a@american.edu or Alasyaz123@gmail.com 
+**Contact:** az5922a@american.edu · alasyaz123@gmail.com 
 

@@ -72,7 +72,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 **Skills:** large-scale survey microdata (IPUMS/ACS), data cleaning and recoding, EDA, regression interpretation, translating statistical results into policy implications.
 
-📄 [Written report (HTML)](file:///Users/alasyazeweldi/Desktop/Data-413/Healthcare%20Coverage_Project%20.html)
+📄 [Written report (HTML)](./file:///Users/alasyazeweldi/Desktop/Data-413/Healthcare%20Coverage_Project%20.html)
 
 **Data:** 2021 ACS 1-year microdata from [IPUMS USA](https://usa.ipums.org/usa/). The extract (hcov_data.csv, 10 million records) is not committed due to file size and IPUMS redistribution terms; to reproduce it, request an extract with YEAR, HHINCOME, SEX, AGE, MARST, RACE, HISPAN, CITIZEN, HCOVANY, HCOVPRIV, HCOVPUB, EMPSTAT, and VETSTAT.
 

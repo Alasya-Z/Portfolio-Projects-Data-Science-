@@ -10,7 +10,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 |---|---|---|---|
 | [Predicting Workplace Absenteeism](./predicting-workplace-absenteeism.pdf) | Can we predict how much and how often employees are absent? | Multiple linear regression, KNN, logistic regression, decision trees (R) | Pruned decision tree, 78% test accuracy |
 | [Financial Stress Detection](./financial-stress-detection-slides.pdf) | Can deep learning detect financial stress in Reddit posts? | Custom Word2Vec embeddings, CNN, BiLSTM (PyTorch) | CNN, 64.3% accuracy / 0.640 F1 |
-| [Health Insurance Coverage in the US](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/health-insurance-coverage-report.html) | Which groups are most likely to lack health insurance? | EDA and logistic regression on ACS microdata (R) | Veteran status, employment, and marriage strongly predict coverage; Hispanic individuals and men less likely to be insured |
+| [Health Insurance Coverage in the US](file:///Users/alasyazeweldi/Desktop/Data-413/Healthcare%20Coverage_Project%20.html) | Which groups are most likely to lack health insurance? | EDA and logistic regression on ACS microdata (R) | Veteran status, employment, and marriage strongly predict coverage; Hispanic individuals and men less likely to be insured |
 | [Topic Modeling on Amazon Reviews](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/topic-modeling-amazon-reviews.html) | What themes emerge from 20,000 product reviews, and how do customers rate each? | TF-IDF, PCA, Truncated SVD, NMF, LDA (Python) | NMF most interpretable; coffee largest category (16%), tea rated highest (4.35), drinks lowest (3.81) |
 
 **Tools:** R (tidyverse, ggplot2), Python (PyTorch, scikit-learn, gensim, NLTK, pandas), Stata, SQL
@@ -72,7 +72,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 **Skills:** large-scale survey microdata (IPUMS/ACS), data cleaning and recoding, EDA, regression interpretation, translating statistical results into policy implications.
 
-📄 [Written report (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/health-insurance-coverage-report.html)
+📄 [Written report (HTML)](file:///Users/alasyazeweldi/Desktop/Data-413/Healthcare%20Coverage_Project%20.html)
 
 **Data:** 2021 ACS 1-year microdata from [IPUMS USA](https://usa.ipums.org/usa/). The extract (hcov_data.csv, 10 million records) is not committed due to file size and IPUMS redistribution terms; to reproduce it, request an extract with YEAR, HHINCOME, SEX, AGE, MARST, RACE, HISPAN, CITIZEN, HCOVANY, HCOVPRIV, HCOVPUB, EMPSTAT, and VETSTAT.
 
@@ -95,6 +95,6 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 ## About Me
 
-I graduated from American University in May 2026 with degrees in Economics and Data Science. My interests center on labor markets, economic mobility, housing, and income inequality, and I like projects where careful data work leads to conclusions people can actually act on.
+I graduated from American University in May 2026 with degrees in Economics and Data Science. My interests center on labor markets, economic mobility, healthcare economics, and housing, and I like projects where careful data work leads to conclusions people can actually act on.
 
 **Contact:** az5922a@american.edu or Alasyaz123@gmail.com

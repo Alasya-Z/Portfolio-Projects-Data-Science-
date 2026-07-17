@@ -8,7 +8,7 @@
 
 <meta name="author" content="Alasya Zeweldi">
 
-<title>Data 413 Project-Individual written Report</title>
+<title>Uninsured in America: How Income, Employment, and Demographics Shape Coverage</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,16 +58,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="Project-Individual written Report_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Project-Individual written Report_files/libs/quarto-html/quarto.js"></script>
-<script src="Project-Individual written Report_files/libs/quarto-html/popper.min.js"></script>
-<script src="Project-Individual written Report_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Project-Individual written Report_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Project-Individual written Report_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Project-Individual written Report_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Project-Individual written Report_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Project-Individual written Report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Project-Individual written Report_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="Healthcare Coverage_Project _files/libs/clipboard/clipboard.min.js"></script>
+<script src="Healthcare Coverage_Project _files/libs/quarto-html/quarto.js"></script>
+<script src="Healthcare Coverage_Project _files/libs/quarto-html/popper.min.js"></script>
+<script src="Healthcare Coverage_Project _files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Healthcare Coverage_Project _files/libs/quarto-html/anchor.min.js"></script>
+<link href="Healthcare Coverage_Project _files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Healthcare Coverage_Project _files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Healthcare Coverage_Project _files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Healthcare Coverage_Project _files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Healthcare Coverage_Project _files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data 413 Project-Individual written Report</h1>
+<h1 class="title">Uninsured in America: How Income, Employment, and Demographics Shape Coverage</h1>
 </div>
 
 
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>Access to health insurance is a key determinant of health outcomes and financial security. In this collaborative group project, my partner Gaberiela lebron and I explored which demographic and socioeconomic factors are associated with having or lacking health insurance. We used individualnlevel microdata from the American Community Survey (ACS) to identify patterns in insurance access across the U.S.nderstanding which groups are less likely to be insured can help target outreach efforts, inform policy interventions, and reduce disparities in access to care. Me and my Partner used microdata from the American Community Survey to explore patterns of insurance coverage across a nationally representative sample.</td>
+<td>Access to health insurance is a key determinant of health outcomes and financial security. This project explores which demographic and socioeconomic factors are associated with having or lacking health insurance, using individual-level microdata from the American Community Survey (ACS) to identify patterns in insurance access across the U.S. Understanding which groups are less likely to be insured can help target outreach efforts, inform policy interventions, and reduce disparities in access to care.</td>
 </tr>
 </tbody>
 </table>
@@ -129,8 +129,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>Our dataset comes from the 2021 American Community Survey (ACS), accessed through IPUMS USA as a custom microdata extract. IPUMS is an online platform that provides access to public-use census and survey data for research purposes. To get the data, we used the IPUMS extract builder, where we selected variables related to health insurance coverage, household income, employment, citizenship, and other demographic factors. After choosing the variables we needed — like HHINCOME, HCOVANY, EMPSTAT, RACE, and more — IPUMS generated a customized CSV file for download. This file included thousands of individual records and was ready for import into R for cleaning and analysis.</p>
-<p>To prepare the data for analysis, we began by filtering out invalid responses and missing values. For example, we removed cases with HHINCOME coded as 9999999 and dropped rows where variables like sex, marital status, employment status, veteran status, or Hispanic origin had placeholder codes like 9 (which typically represents “not in universe” or “missing”). After cleaning, we recoded several categorical variables into simpler binary formats — such as turning employment status into 1 for employed and 0 for not, and the same logic for veteran status as well.</p></td>
+<td>The dataset comes from the 2021 American Community Survey (ACS), accessed through IPUMS USA as a custom microdata extract. IPUMS is an online platform that provides public-use census and survey data for research. Using the IPUMS extract builder, I selected variables related to health insurance coverage, household income, employment, citizenship, and other demographic factors. Once I chose the variables I needed, such as HHINCOME, HCOVANY, EMPSTAT, and RACE, IPUMS generated a custom CSV file for download. The file contained thousands of individual records and was ready to import into R for cleaning and analysis.</td>
+</tr>
+<tr class="even">
+<td>To prepare the data for analysis, I filtered out invalid responses and missing values. For example, I removed cases with HHINCOME coded as 9999999 and dropped rows where sex, marital status, employment status, veteran status, or Hispanic origin had placeholder codes like 9, which typically represent “not in universe” or missing. I then recoded several categorical variables into simpler binary formats, such as coding employment status as 1 for employed and 0 for not, and applying the same logic to veteran status.</td>
 </tr>
 </tbody>
 </table>
@@ -211,21 +213,20 @@ dbl (13): YEAR, HHINCOME, SEX, AGE, MARST, RACE, HISPAN, CITIZEN, HCOVANY, H...
 <td>Exploratory Data Analysis</td>
 </tr>
 <tr class="even">
-<td><p>Before jumping into formal models, we’ll explore some basic patterns in the data to get a clearer picture of who has health insurance and who doesn’t. We’ve already cleaned the data by removing invalid responses, simplifying variables, and renaming unclear columns for clarity.</p>
-<p>We’ll focus on the new variable <code>has_insurance</code>, which tells us whether someone has any form of health coverage — either public or private. This variable is coded as:</p>
+<td><p>Before jumping into formal models, I explored basic patterns in the data to get a clearer picture of who has health insurance and who doesn’t. The analysis centers on the new variable <code>has_insurance</code>, which indicates whether someone has any form of health coverage, public or private.</p>
+<p>To visualize these relationships, I use bar plots and calculated proportions to see which groups have the highest uninsured rates. This helps identify potential disparities and guides which variables matter most in the modeling stage.</p>
 <ul>
 <li><p><code>1</code> = has insurance</p></li>
 <li><p><code>0</code> = no insurance</p></li>
 </ul>
-<p>We’ll also explore how coverage varies across key demographic and socioeconomic factors, including:</p>
+<p>I will also explore how coverage varies across key demographic and socioeconomic factors, including:</p>
 <ul>
 <li><p><code>HHINCOME</code>: total household income</p></li>
 <li><p><code>EMPSTAT</code>: employment status (employed or not)</p></li>
 <li><p><code>RACE</code> and <code>HISPAN</code>: race and Hispanic/Latino origin</p></li>
 <li><p><code>VETSTAT</code>: veteran status</p></li>
 <li><p><code>AGE</code>, <code>SEX</code>, and <code>marital_status</code>: core demographic characteristics</p></li>
-</ul>
-<p>To visualize these relationships, we’ll use bar plots and calculate proportions to see which groups have the highest rates of uninsurance. This will help us spot any potential disparities and guide which variables may be important in the modeling stage.</p></td>
+</ul></td>
 </tr>
 </tbody>
 </table>
@@ -240,12 +241,10 @@ dbl (13): YEAR, HHINCOME, SEX, AGE, MARST, RACE, HISPAN, CITIZEN, HCOVANY, H...
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>To test the relationship between health insurance coverage and demographic/socioeconomic factors, we made the following hypotheses:</p>
-<p><strong>Null hypothesis (</strong>H₀): None of the predictors are significantly associated with whether someone has insurance.</p>
-<p><strong>(</strong>H₀) :B1 =B2 ​⋯ Bk = 0 (no prediction matters)</p>
-<p><strong>Alternative hypothesis</strong> (H₁)<strong>:</strong> At least one predictor is significantly associated with insurance status.</p>
-<p>(H₁) : at least one Bj ≠ 0 (no prediction matters)</p>
-<p>We will test these hypotheses using logistic regression, which is appropriate given that our outcome variable (<code>has_insurance</code>) is binary (1 = has insurance, 0 = no insurance).</p></td>
+<td><p>To test the relationship between health insurance coverage and demographic and socioeconomic factors, I set up the following hypotheses:</p>
+<p><strong>Null hypothesis (H₀):</strong> None of the predictors are significantly associated with whether someone has insurance. H₀: β₁ = β₂ = ⋯ = βₖ = 0 (no predictor matters)</p>
+<p><strong>Alternative hypothesis (H₁)</strong>: At least one predictor is significantly associated with insurance status. H₁: at least one βⱼ ≠ 0 (at least one predictor matters)</p>
+<p>I test these hypotheses using logistic regression, which is appropriate since the outcome variable (<code>has_insurance</code>) is binary.</p></td>
 </tr>
 </tbody>
 </table>
@@ -268,7 +267,7 @@ dbl (13): YEAR, HHINCOME, SEX, AGE, MARST, RACE, HISPAN, CITIZEN, HCOVANY, H...
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><strong>Before we analyze this further, it’s important to clarify who has insurance in our sample:</strong></p>
+<td><p><strong>Before I analyze this further, it’s important to clarify who has insurance in our sample:</strong></p>
 <p>- <strong>7.2 million</strong> people have insurance (`has_insurance == 1`)</p>
 <p>- <strong>563,000</strong> people do not (`has_insurance == 0`)</p></td>
 </tr>
@@ -302,12 +301,12 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </colgroup>
 <thead>
 <tr class="header">
-<th>insights:</th>
+<th>Insights:</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>From our summary, it’s clear that people with very low or even negative household income are consistently uninsured. Everyone earning between –$12,800 and about –$2,000 had a proportion_uninsured of 1, meaning none of them have health insurance. This makes sense as these households are among the most vulnerable and least likely to be covered due to debt or deep financial hardship.So far, we’re only seeing the uninsured side. Next, we’ll explore who <em>does</em> have insurance at higher income levels to see if there’s a tipping point where access improves.</td>
+<td>From the summary, it’s clear that people with very low or even negative household income are consistently uninsured. Everyone earning between –$12,800 and about –$2,000 had a proportion_uninsured of 1, meaning none of them had health insurance. This makes sense, since these households are among the most vulnerable and least likely to be covered due to debt or deep financial hardship. So far, this only shows the uninsured side. Next, I look at who <em>does</em> have insurance at higher income levels to see if there’s a tipping point where access improves.</td>
 </tr>
 </tbody>
 </table>
@@ -352,9 +351,9 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>In this chunk of the data, we’re looking at the bottom 30 income levels where the proportion_uninsured is zero meaning <em>everyone</em> in these groups reported having health insurance, even if they had very little or negative income. For example, households earning as little as –$16,800 or barely over $1,000 all had full coverage.</p>
-<p>This seems counterintuitive at first — why would people with barely any income all have insurance? One likely explanation is government programs like Medicaid. These individuals may qualify for public health coverage due to their income being well below the poverty line. So in this case, being <em>extremely</em> low-income may actually increase their chances of being insured, since they likely qualify for safety-net programs.</p>
-<p>That said, we haven’t yet seen the tipping point where people stop qualifying for public programs but still can’t afford private insurance. To fully understand that drop-off, we’ll need to keep scanning higher income ranges where the proportion uninsured might start rising again.</p></td>
+<td><p>This chunk looks at the bottom 30 income levels where proportion_uninsured is zero, meaning everyone in these groups reported having health insurance even with very little or negative income. For example, households earning as little as –$16,800 or barely over $1,000 all had full coverage.</p>
+<p>This seems counterintuitive at first: why would people with barely any income all have insurance? One likely explanation is government programs like Medicaid. These individuals may qualify for public coverage because their income falls well below the poverty line. Being extremely low-income may actually increase the chances of being insured, since it opens up eligibility for safety-net programs.</p>
+<p>That said, this doesn’t yet show the tipping point where people stop qualifying for public programs but still can’t afford private insurance. To understand that drop-off, I scan higher income ranges where the proportion uninsured might start rising again.</p></td>
 </tr>
 </tbody>
 </table>
@@ -394,7 +393,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Project-Individual-written-Report_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Healthcare-Coverage_Project-_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -405,13 +404,13 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>what the graph tells us about income level and who is uninsured:</strong></th>
+<th>Low-to-mid income graph:</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>The graph clearly shows that as household income increases, the percent of people without health insurance declines. This drop is steepest at lower income levels moving from $0 to $60,000 results in a sharp reduction in the uninsured rate. Beyond that, the curve begins to flatten, indicating that higher income continues to reduce the likelihood of being uninsured, but the gains are smaller.</p>
-<p>Interestingly, individuals at the <em>very</em> bottom of the income scale (even those with negative income) appear to have somewhat lower uninsured rates than expected likely because they qualify for public programs like Medicaid, which are designed to help make sure the lowest-income individuals have some form of health insurance. This means people just above the cutoff for these programs may actually be more likely to be uninsured if they can’t yet afford private insurance.</p></td>
+<td><p>As household income increases, the percent of people without health insurance declines. The drop is steepest at lower income levels: moving from $0 to $60,000 produces a sharp reduction in the uninsured rate. Beyond that, the curve flattens, meaning higher income continues to reduce the likelihood of being uninsured, but the gains are smaller.</p>
+<p>Interestingly, individuals at the very bottom of the income scale, even those with negative income, have somewhat lower uninsured rates than expected, likely because they qualify for public programs like Medicaid. This means people just above the cutoff for those programs may actually be more likely to be uninsured if they can’t yet afford private coverage.</p></td>
 </tr>
 </tbody>
 </table>
@@ -441,7 +440,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Project-Individual-written-Report_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Healthcare-Coverage_Project-_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -452,19 +451,19 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>Income and insurance rates:</strong></th>
+<th>Upper income graph:</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>This graph explores the relationship between high household income and the likelihood of being uninsured. At first glance, we might expect the uninsured rate to continue dropping as income rises. But the pattern here is more nuanced: the proportion of people without insurance slightly fluctuates between $200,000 and $500,000, hovering around 2.5% to 3%. This may suggest that some higher-income individuals choose not to carry insurance possibly because they can afford to pay out-of-pocket or are self-employed and opt out of traditional plans.</p>
+<td><p>This graph explores the relationship between high household income and the likelihood of being uninsured. At first glance, I might expect the uninsured rate to continue dropping as income rises. But the pattern here is more nuanced: the proportion of people without insurance slightly fluctuates between $200,000 and $500,000, hovering around 2.5% to 3%. This may suggest that some higher-income individuals choose not to carry insurance possibly because they can afford to pay out-of-pocket or are self-employed and opt out of traditional plans.</p>
 <p>However, after about the $500,000 mark, the uninsured rate starts to fall again, reaching close to 1% by $1 million in income. This could reflect increased access to employer-provided benefits among very high earners or greater willingness to pay for private plans.</p>
 <p>In short, while income is still negatively correlated with being uninsured overall, this upper range reveals some complexity particularly among those earning enough to self-insure or selectively opt out.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#graph of:Insurance Rates and Maritial Status</span></span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#graph of:Insurance Rates and Marital Status</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(marital_status)) <span class="sc">|&gt;</span> </span>
@@ -492,7 +491,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Project-Individual-written-Report_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Healthcare-Coverage_Project-_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -503,12 +502,12 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>Insurance Rates and Maritial Status effects:</strong></th>
+<th><strong>Insurance Rates and</strong> Marital status<strong>:</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>The chart shows that married individuals are less likely to be uninsured compared to those who are not married. This difference may be partly explained by the fact that married people often have access to a spouse’s employer-sponsored health insurance, or they may have more stable household income. This naturally raises the question: how does employment status itself influence access to insurance?</td>
+<td>The chart shows that married individuals are less likely to be uninsured than those who are not married. This difference may partly reflect access to a spouse’s employer-sponsored health insurance, or more stable household income. It naturally raises the next question: how does employment status itself influence access to insurance?</td>
 </tr>
 </tbody>
 </table>
@@ -537,7 +536,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Project-Individual-written-Report_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Healthcare-Coverage_Project-_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -548,12 +547,12 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </colgroup>
 <thead>
 <tr class="header">
-<th>Insights:</th>
+<th>Employment insights:</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>While we might expect employed individuals to have better access to insurance, the uninsured rate is actually slightly higher among them compared to those not in the labor force. This may be because the “not in labor force” group includes retirees with medicare, students with health insurance through there university coverage, or individuals on disability who often qualify for public insurance programs. On the other hand, employed individuals may be in part-time roles, gig economy jobs, or positions that don’t offer employer-sponsored health insurance making them more likely to being uninsured.</td>
+<td>While employed individuals might be expected to have better access to insurance, the uninsured rate is actually slightly higher among them than among those not in the labor force. The “not in labor force” group includes retirees with Medicare, students covered through their universities, and individuals on disability who often qualify for public insurance programs. Employed individuals, on the other hand, may be in part-time roles, gig economy jobs, or positions that don’t offer employer-sponsored coverage, making them more likely to be uninsured.</td>
 </tr>
 </tbody>
 </table>
@@ -587,7 +586,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Project-Individual-written-Report_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Healthcare-Coverage_Project-_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -603,10 +602,10 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>This graph shows that among Americans, those identified as “Asian” have the highest uninsured rate at nearly 20%. While this is high uninsured rate, it’s important to remember that the Asian category is broad and includes many different communities with varied experiences. For example, research shows that Korean Americans, are more likely to be self-employed or work for small businesses, tend to have lower access to employer-sponsored insurance. Without more detailed subgroup data, these variations are combined under a single label.</p>
-<p>The uninsured rates for Black and White Americans are lower, around 8–9% and 5%, respectively. These differences could reflect disparities in job types, income, public coverage access, and structural factors tied to employment. The “Other” category, which is under 5%, includes individuals who don’t identify with the either racial groups but is difficult to interpret precisely without more context.</p>
-<p>The NA group likely includes individuals who are multiracial, chose not to identify with the listed categories, or were not clearly classified. Since race is difficult to categorize and often simplified in large surveys, this group’s higher uninsured rate (~13%) may reflect limitations in how racial identity is recorded.</p>
-<p>Finally, there is no Hispanic or Latino category shown because in U.S. Census-style data, ethnicity is recorded separately from race. Many Hispanic individuals may appear under any of the racial groups above. Without including an ethnicity variable like <code>HISPAN</code>, it’s not possible to isolate this population, which is an important limitation to keep in mind when interpreting insurance disparities. Which is why in the next graph</p></td>
+<td><p>This graph shows that Americans identified as “Asian” have the highest uninsured rate, at nearly 20%. It’s important to remember that the Asian category is broad and includes many different communities with varied experiences. For example, research shows that Korean Americans are more likely to be self-employed or work for small businesses, which tend to offer less access to employer-sponsored insurance. Without more detailed subgroup data, these variations get combined under a single label</p>
+<p>The uninsured rates for Black and White Americans are lower, around 8-9% and 5%, respectively. These differences could reflect disparities in job types, income, public coverage access, and structural factors tied to employment. The “Other” category, at under 5%, includes individuals who don’t identify with the listed racial groups and is difficult to interpret without more context</p>
+<p>The NA group likely includes individuals who are multiracial, chose not to identify with the listed categories, or were not clearly classified. Since race is often simplified in large surveys, this group’s higher uninsured rate (~13%) may reflect limitations in how racial identity is recorded.</p>
+<p>Finally, there is no Hispanic or Latino category shown because Census-style data records ethnicity separately from race. Many Hispanic individuals may appear under any of the racial groups above, which is why the next graph uses the <code>HISPAN</code> variable to look at this population directly.</p></td>
 </tr>
 </tbody>
 </table>
@@ -637,7 +636,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Project-Individual-written-Report_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Healthcare-Coverage_Project-_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -653,7 +652,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </thead>
 <tbody>
 <tr class="odd">
-<td>The data show a clear disparity in insurance coverage between Hispanic and non-Hispanic individuals. In our sample, nearly 1 in 6 Hispanic respondents lack health insurance, which is more than double the rate seen among non-Hispanic individuals (15%). This maybe due to the fact that many Hispanic Americans are employed in sectors like construction, hospitality, or agriculture industries that often don’t offer employer-based coverage. In addition, things like immigration status, language barriers, and limited access to public assistance programs may make it harder to enroll in or qualify for insurance, even when technically eligible.</td>
+<td>The data show a clear disparity in coverage between Hispanic and non-Hispanic individuals. In this sample, nearly 1 in 6 Hispanic respondents lack health insurance, more than double the rate among non-Hispanic individuals. Many Hispanic Americans work in sectors like construction, hospitality, and agriculture, industries that often don’t offer employer-based coverage. In addition, immigration status, language barriers, and limited access to public assistance programs may make it harder to enroll in or qualify for insurance, even when technically eligible.</td>
 </tr>
 </tbody>
 </table>
@@ -685,7 +684,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Project-Individual-written-Report_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Healthcare-Coverage_Project-_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -701,7 +700,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </thead>
 <tbody>
 <tr class="odd">
-<td>The uninsured rate is highest among young adults aged 20–29, at around 13%, and then steadily declines with age. Rates fall sharply starting in the 60s, reaching near zero for those 70 and older. This trend likely reflects eligibility for Medicare after age 65, while younger adults—especially those just out of school or in early-career or part-time jobs—may lack employer-based coverage or delay getting insurance. This pattern highlights how age-based policy programs like Medicare significantly improve coverage among older populations</td>
+<td>The uninsured rate is highest among young adults aged 20-29, at around 13%, and steadily declines with age. Rates fall sharply starting in the 60s, reaching near zero for those 70 and older. This likely reflects Medicare eligibility after age 65, while younger adults, especially those just out of school or in early-career or part-time jobs, may lack employer-based coverage or delay getting insured. The pattern highlights how age-based programs like Medicare significantly improve coverage among older populations.</td>
 </tr>
 </tbody>
 </table>
@@ -733,7 +732,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Project-Individual-written-Report_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Healthcare-Coverage_Project-_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -749,7 +748,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </thead>
 <tbody>
 <tr class="odd">
-<td>Males have a higher uninsured rate (just over 8%) compared to females (about 6.4%). This difference may reflect several factors: men are more likely to work in jobs without benefits, such as gig or seasonal work, and may be less likely to seek out or enroll in public insurance programs. In contrast, women, especially those with children, may qualify for programs like Medicaid at higher rates. These patterns suggest that employment type and policy eligibility can influence coverage differences by sex.</td>
+<td>Males have a higher uninsured rate (just over 8%) than females (about 6.4%). Men are more likely to work in jobs without benefits, such as gig or seasonal work, and may be less likely to seek out or enroll in public insurance programs. Women, especially those with children, may qualify for programs like Medicaid at higher rates. These patterns suggest that employment type and policy eligibility help explain coverage differences by sex.</td>
 </tr>
 </tbody>
 </table>
@@ -780,7 +779,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Project-Individual-written-Report_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Healthcare-Coverage_Project-_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -796,7 +795,7 @@ $ proportion_uninsured &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 </thead>
 <tbody>
 <tr class="odd">
-<td>Veterans have a significantly lower uninsured rate compared to the “Other/Unknown” group, likely due to their access to government-supported healthcare services such as the VA system. Their eligibility for veteran-specific programs provides more consistent insurance coverage, which may explain the sharp contrast shown in the chart</td>
+<td>Veterans have a significantly lower uninsured rate than the “Other/Unknown” group, likely due to their access to government-supported healthcare through the VA system. Eligibility for veteran-specific programs provides more consistent coverage, which explains the sharp contrast shown in the chart.</td>
 </tr>
 </tbody>
 </table>
@@ -842,13 +841,13 @@ Number of Fisher Scoring iterations: 6</code></pre>
 </colgroup>
 <thead>
 <tr class="header">
-<th>Explaining logistic regression:</th>
+<th>Logistic regression explanation:</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>All of the predictors in the model are statistically significant, but some have a much stronger practical impact than others. Being a veteran shows the highest positive effect, with a coefficient close to 1, meaning veterans are nearly guaranteed to have health insurance. This makes sense given the benefits available through VA healthcare and other federal programs for those who have served. Employment and marital status also increase the likelihood of being insured, which reflects how many people rely on coverage through work or a spouse. On the other hand, being Hispanic is associated with a lower chance of having insurance, even when accounting for factors like income and job status.</p>
-<p>This supports what we found earlier in our exploratory analysis. Men are also less likely than women to be insured. Age has a positive effect, which is expected since older individuals are more likely to qualify for Medicare, and in some cases, prioritize getting insured. While income does have a statistically significant effect, it barely shifts the outcome in practical terms. That’s likely because people with very low incomes may qualify for public options like Medicaid, which helps reduce gaps in coverage. Of course, that doesn’t mean access is equal there’s still more work to be done to expand and strengthen safety net programs, but statistically, income alone doesn’t appear to carry as much weight in this model as other factors like veteran status or employment.</p></td>
+<td><p>All of the predictors in the model are statistically significant, but some have a much stronger practical impact than others. Being a veteran shows the largest positive effect, with a coefficient close to 1, meaning veterans are far more likely to have health insurance. This makes sense given the benefits available through VA healthcare and other federal programs for those who have served. Employment and marital status also increase the likelihood of being insured, reflecting how many people get coverage through work or a spouse. Being Hispanic is associated with a lower chance of having insurance, even after accounting for income and job status, which supports the earlier exploratory findings. Men are also less likely than women to be insured.</p>
+<p>Age has a positive effect, which is expected since older individuals are more likely to qualify for Medicare. Income is statistically significant but barely shifts the outcome in practical terms, likely because people with very low incomes qualify for public options like Medicaid, which narrows gaps in coverage. That doesn’t mean access is equal, and there’s still work to be done to strengthen safety-net programs, but income alone doesn’t carry as much weight in this model as factors like veteran status or employment.</p></td>
 </tr>
 </tbody>
 </table>
@@ -863,8 +862,8 @@ Number of Fisher Scoring iterations: 6</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>Based on the results of our logistic regression, we reject the null hypothesis and find strong statistical evidence that several demographic and socioeconomic factors are significantly associated with whether someone has health insurance. Veteran status, employment, and marital status show the strongest positive effects, meaning people in those groups are much more likely to be insured. On the other hand, being Hispanic, male, or unemployed is linked to a lower likelihood of having coverage, even after controlling for income and age.</p>
-<p>Race also plays a meaningful role Black and White individuals differ in their predicted probabilities of being insured. While income does matter, its effect is small compared to other factors, likely because programs like Medicaid help cover many low-income individuals. Altogether, the analysis highlights how access to health insurance is shaped by a mix of structural and demographic factors. These patterns point to specific communities such as Hispanic Americans, some racial minorities, and men that could benefit from more targeted outreach or expanded public options.</p></td>
+<td><p>Based on the logistic regression results, I reject the null hypothesis and find strong statistical evidence that several demographic and socioeconomic factors are significantly associated with whether someone has health insurance. Veteran status, employment, and marital status show the strongest positive effects, meaning people in those groups are much more likely to be insured. Being Hispanic, male, or out of work is linked to a lower likelihood of coverage, even after controlling for income and age.</p>
+<p>Race also plays a meaningful role, with Black and White individuals differing in their predicted probabilities of being insured. Income matters, but its effect is small compared to other factors, likely because programs like Medicaid cover many low-income individuals. Altogether, the analysis highlights how access to health insurance is shaped by a mix of structural and demographic factors. These patterns point to specific communities, such as Hispanic Americans, some racial minorities, and men, that could benefit from more targeted outreach or expanded healthcare options.</p></td>
 </tr>
 </tbody>
 </table>

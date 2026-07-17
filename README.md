@@ -8,10 +8,10 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 | Project | Question | Methods | Best Result |
 |---|---|---|---|
-| [Predicting Workplace Absenteeism | Can we predict how much and how often employees are absent? | Multiple linear regression, KNN, logistic regression, decision trees (R) | Pruned decision tree, 78% test accuracy |
-| [Financial Stress Detection | Can deep learning detect financial stress in Reddit posts? | Custom Word2Vec embeddings, CNN, BiLSTM (PyTorch) | CNN, 64.3% accuracy / 0.640 F1 |
-| [Health Insurance Coverage in the US Which groups are most likely to lack health insurance? | EDA and logistic regression on ACS microdata (R) | Veteran status, employment, and marriage strongly predict coverage; Hispanic individuals and men less likely to be insured |
-| [Topic Modeling on Amazon Reviews | What themes emerge from 20,000 product reviews? | TF-IDF, NMF, LDA (Python) | Five interpretable topics recovered without labels |
+| [Predicting Workplace Absenteeism](./predicting-workplace-absenteeism.pdf) | Can we predict how much and how often employees are absent? | Multiple linear regression, KNN, logistic regression, decision trees (R) | Pruned decision tree, 78% test accuracy |
+| [Financial Stress Detection](./financial-stress-detection-slides.pdf) | Can deep learning detect financial stress in Reddit posts? | Custom Word2Vec embeddings, CNN, BiLSTM (PyTorch) | CNN, 64.3% accuracy / 0.640 F1 |
+| [Health Insurance Coverage in the US](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/health-insurance-coverage-report.html) | Which groups are most likely to lack health insurance? | EDA and logistic regression on ACS microdata (R) | Veteran status, employment, and marriage strongly predict coverage; Hispanic individuals and men less likely to be insured |
+| [Topic Modeling on Amazon Reviews](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/topic-modeling-amazon-reviews.html) | What themes emerge from 20,000 product reviews, and how do customers rate each? | TF-IDF, PCA, Truncated SVD, NMF, LDA (Python) | NMF most interpretable; coffee largest category (16%), tea rated highest (4.35), drinks lowest (3.81) |
 
 **Tools:** R (tidyverse, ggplot2), Python (PyTorch, scikit-learn, gensim, NLTK, pandas), Stata, SQL
 
@@ -34,7 +34,9 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 **Skills:** model comparison, cross-validation, feature preprocessing, avoiding data leakage in train/test scaling, communicating tradeoffs between accuracy and interpretability.
 
-📄 [Project slides (PDF)](./predicting-workplace-absenteeism.pdf)
+📄 [Project slides (PDF)](./predicting-workplace-absenteeism.pdf) · 💻 [Full code (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/predicting-workplace-absenteeism-code.html)
+
+**Data:** [absenteeism-at-work.csv](./absenteeism-at-work.csv), the UCI Absenteeism at Work dataset (740 records from a Brazilian courier company).
 
 ### 2. Financial Stress Detection Using Reddit Data
 *Python, PyTorch | Deep learning NLP*
@@ -53,6 +55,8 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 📄 [Project slides (PDF)](./financial-stress-detection-slides.pdf) · 💻 [Full notebook (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/financial-stress-detection-notebook.html)
 
+**Data:** [dreaddit-train.csv](./dreaddit-train.csv) and [dreaddit-test.csv](./dreaddit-test.csv), the original Dreaddit train/test split (Turcan & McKeown, 2019).
+
 ### 3. Health Insurance Coverage in the US
 *R | EDA and logistic regression on survey microdata*
 
@@ -62,7 +66,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 - Built a custom IPUMS extract with variables on coverage, income, employment, citizenship, and demographics
 - Cleaned placeholder codes and missing values, then recoded categorical variables into analysis-ready binary formats
 - Ran exploratory analysis of coverage rates across income, race, sex, and employment groups
-- Fit a logistic regression predicting insurance coverage and interpret coefficients in policy terms
+- Fit a logistic regression predicting insurance coverage and interpreted coefficients in policy terms
 
 **Takeaways.** Veteran status, employment, and marriage show the strongest positive effects on coverage. Hispanic individuals and men are less likely to be insured even after controlling for income and age. Income itself matters less than expected, likely because Medicaid covers many low-income individuals. The results point to specific communities that could benefit from targeted outreach.
 
@@ -70,16 +74,22 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 📄 [Written report (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/health-insurance-coverage-report.html)
 
+**Data:** 2021 ACS 1-year microdata from [IPUMS USA](https://usa.ipums.org/usa/). The extract (hcov_data.csv, 10 million records) is not committed due to file size and IPUMS redistribution terms; to reproduce it, request an extract with YEAR, HHINCOME, SEX, AGE, MARST, RACE, HISPAN, CITIZEN, HCOVANY, HCOVPRIV, HCOVPUB, EMPSTAT, and VETSTAT.
+
 ### 4. Topic Modeling on Amazon Reviews
 *Python | Unsupervised NLP (side project)*
 
-**Problem.** Can unsupervised learning surface meaningful themes from raw product reviews without any labels?
+**Problem.** Can unsupervised learning surface meaningful themes from raw product reviews without any labels, and what do customers actually think about each theme?
 
-**Methodology.** Vectorized 20,000 Amazon food reviews with TF-IDF (14,546-term vocabulary, filtering terms that appear in over 80% of reviews), then fit and compared NMF and LDA topic models, examining the top terms per topic for interpretability.
+**Methodology.** Cleaned and vectorized 20,000 Amazon food reviews with TF-IDF (10,000-term vocabulary, filtering terms that appear in over 80% of reviews), then fit and compared four approaches on the same data: PCA with eigenvalue and scree plot analysis, latent semantic analysis via Truncated SVD, NMF, and LDA, examining the top terms per topic for interpretability. Linked each review's dominant NMF topic to its 1-5 star rating to measure how much customers discuss each category and how they rate it, with sensitivity checks at 3, 5, and 8 topics.
+
+**Takeaway.** The reviews were sorted into clear product categories, and NMF produced the most interpretable topics of the four methods. Coffee was the largest product category at 16% of reviews, drinks like juice and soda drew the most complaints (3.81 average rating, with 20% of reviews at 1-2 stars), and tea was rated most positively (4.35 average). Text cleaning mattered as much as model choice: leftover HTML tags formed their own meaningless topic until preprocessing removed them.
 
 **Skills:** text vectorization, dimensionality reduction, unsupervised learning, model interpretability.
 
 📄 [Notebook (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/topic-modeling-amazon-reviews.html)
+
+**Data:** [Amazon Fine Food Reviews](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews) (Kaggle). Download Reviews.csv to the repo root; not committed due to file size.
 
 ---
 
@@ -87,5 +97,4 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 I graduated from American University in May 2026 with degrees in Economics and Data Science. My interests center on labor markets, economic mobility, housing, and income inequality, and I like projects where careful data work leads to conclusions people can actually act on.
 
-**Contact:** az5922a@american.edu · alasyaz123@gmail.com 
-
+**Contact:** az5922a@american.edu or Alasyaz123@gmail.com

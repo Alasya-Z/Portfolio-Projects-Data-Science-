@@ -10,7 +10,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 |---|---|---|---|
 | [Predicting Workplace Absenteeism](./predicting-workplace-absenteeism.pdf) | Can we predict how much and how often employees are absent? | Multiple linear regression, KNN, logistic regression, decision trees (R) | Pruned decision tree, 78% test accuracy |
 | [Financial Stress Detection](./financial-stress-detection-slides.pdf) | Can deep learning detect financial stress in Reddit posts? | Custom Word2Vec embeddings, CNN, BiLSTM (PyTorch) | CNN, 64.3% accuracy / 0.640 F1 |
-| [Health Insurance Coverage in the US](file:///Users/alasyazeweldi/Desktop/Data-413/Healthcare%20Coverage_Project%20.html) | Which groups are most likely to lack health insurance? | EDA and logistic regression on ACS microdata (R) | Veteran status, employment, and marriage strongly predict coverage; Hispanic individuals and men less likely to be insured |
+| [Health Insurance Coverage in the US](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/healthcare-coverage-project.html) | Which groups are most likely to lack health insurance? | EDA and logistic regression on ACS microdata (R) | Veteran status, employment, and marriage strongly predict coverage; Hispanic individuals and men are less likely to be insured |
 | [Topic Modeling on Amazon Reviews](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/topic-modeling-amazon-reviews.html) | What themes emerge from 20,000 product reviews, and how do customers rate each? | TF-IDF, PCA, Truncated SVD, NMF, LDA (Python) | NMF most interpretable; coffee largest category (16%), tea rated highest (4.35), drinks lowest (3.81) |
 
 **Tools:** R (tidyverse, ggplot2), Python (PyTorch, scikit-learn, gensim, NLTK, pandas), Stata, SQL
@@ -28,13 +28,13 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 - Multiple linear regression as a baseline (adjusted R² of 0.23, test RMSE of 13.4 hours)
 - KNN classifier with scaled features and K tuned over odd values from 3 to 31 (best K = 27, 75% accuracy)
 - Logistic regression using median absence time as the cutoff (64.7% accuracy; transportation expense was the only significant predictor)
-- Decision tree, grown to 16 nodes then pruned to 6 using 10-fold cross-validation (78.1% test accuracy, the best classifier)
+- Decision tree, grown to 16 nodes, then pruned to 6 using 10-fold cross-validation (78.1% test accuracy, the best classifier)
 
 **Takeaways.** Tree-based methods handled the nonlinear structure best. Health-related absence reasons, transportation expense, and age emerged as the strongest drivers of absenteeism.
 
 **Skills:** model comparison, cross-validation, feature preprocessing, avoiding data leakage in train/test scaling, communicating tradeoffs between accuracy and interpretability.
 
-📄 [Project slides (PDF)](./predicting-workplace-absenteeism.pdf) · 💻 [Full code (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/predicting-workplace-absenteeism-code.html)
+[Project slides (PDF)](./predicting-workplace-absenteeism.pdf) ·  [Full code (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/predicting-workplace-absenteeism-code.html)
 
 **Data:** [absenteeism-at-work.csv](./absenteeism-at-work.csv), the UCI Absenteeism at Work dataset (740 records from a Brazilian courier company).
 
@@ -53,7 +53,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 **Skills:** neural network architecture design, embedding training, overfitting diagnosis, error analysis, honest reporting of model limitations.
 
-📄 [Project slides (PDF)](./financial-stress-detection-slides.pdf) · 💻 [Full notebook (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/financial-stress-detection-notebook.html)
+ [Project slides (PDF)](./financial-stress-detection-slides.pdf) · [Full notebook (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/financial-stress-detection-notebook.html)
 
 **Data:** [dreaddit-train.csv](./dreaddit-train.csv) and [dreaddit-test.csv](./dreaddit-test.csv), the original Dreaddit train/test split (Turcan & McKeown, 2019).
 
@@ -66,13 +66,13 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 - Built a custom IPUMS extract with variables on coverage, income, employment, citizenship, and demographics
 - Cleaned placeholder codes and missing values, then recoded categorical variables into analysis-ready binary formats
 - Ran exploratory analysis of coverage rates across income, race, sex, and employment groups
-- Fit a logistic regression predicting insurance coverage and interpreted coefficients in policy terms
+- Fit a logistic regression predicting insurance coverage and interpret coefficients in policy terms
 
 **Takeaways.** Veteran status, employment, and marriage show the strongest positive effects on coverage. Hispanic individuals and men are less likely to be insured even after controlling for income and age. Income itself matters less than expected, likely because Medicaid covers many low-income individuals. The results point to specific communities that could benefit from targeted outreach.
 
 **Skills:** large-scale survey microdata (IPUMS/ACS), data cleaning and recoding, EDA, regression interpretation, translating statistical results into policy implications.
 
-📄 [Written report (HTML)](./file:///Users/alasyazeweldi/Desktop/Data-413/Healthcare%20Coverage_Project%20.html)
+[Written report (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/healthcare-coverage-project.html)
 
 **Data:** 2021 ACS 1-year microdata from [IPUMS USA](https://usa.ipums.org/usa/). The extract (hcov_data.csv, 10 million records) is not committed due to file size and IPUMS redistribution terms; to reproduce it, request an extract with YEAR, HHINCOME, SEX, AGE, MARST, RACE, HISPAN, CITIZEN, HCOVANY, HCOVPRIV, HCOVPUB, EMPSTAT, and VETSTAT.
 
@@ -87,7 +87,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 **Skills:** text vectorization, dimensionality reduction, unsupervised learning, model interpretability.
 
-📄 [Notebook (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/topic-modeling-amazon-reviews.html)
+ [Notebook (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/topic-modeling-amazon-reviews.html)
 
 **Data:** [Amazon Fine Food Reviews](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews) (Kaggle). Download Reviews.csv to the repo root; not committed due to file size.
 

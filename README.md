@@ -34,7 +34,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 **Skills:** model comparison, cross-validation, feature preprocessing, avoiding data leakage in train/test scaling, communicating tradeoffs between accuracy and interpretability.
 
-[Project slides (PDF)](./predicting-workplace-absenteeism.pdf) ·  [Full code (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/predicting-workplace-absenteeism-code.html)
+[Project slides (PDF)](./predicting-workplace-absenteeism.pdf) · [Full code (HTML)](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/predicting-workplace-absenteeism-code.html)
 
 **Data:** [absenteeism-at-work.csv](./absenteeism-at-work.csv), the UCI Absenteeism at Work dataset (740 records from a Brazilian courier company).
 

@@ -13,7 +13,7 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 | [Health Insurance Coverage in the US](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/healthcare-coverage-project.html) | Which groups are most likely to lack health insurance? | EDA and logistic regression on ACS microdata (R) | Veteran status, employment, and marriage strongly predict coverage; Hispanic individuals and men are less likely to be insured |
 | [Topic Modeling on Amazon Reviews](https://htmlpreview.github.io/?https://github.com/Alasya-Z/Portfolio-Projects-Data-Science-/blob/main/topic-modeling-amazon-reviews.html) | What themes emerge from 20,000 product reviews, and how do customers rate each? | TF-IDF, PCA, Truncated SVD, NMF, LDA (Python) | NMF most interpretable; coffee largest category (16%), tea rated highest (4.35), drinks lowest (3.81) |
 
-**Tools:** R (tidyverse, ggplot2), Python (PyTorch, scikit-learn, gensim, NLTK, pandas), Stata, SQL
+**Tools:** R (tidyverse, ggplot2), Python (PyTorch, scikit-learn, gensim, NLTK, pandas)
 
 ---
 

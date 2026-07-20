@@ -95,6 +95,6 @@ A collection of applied projects in machine learning, NLP, and policy-relevant d
 
 ## About Me
 
-I graduated from American University in May 2026 with degrees in Economics and Data Science. My interests center on labor markets, economic mobility, healthcare economics, and housing. 
+I graduated from American University in May 2026 with degrees in Economics and Data Science. My interests center on labor markets, economic mobility, healthcare economics, and housing. I enjoy projects that transform complex data into clear and concise insights.
 
 **Contact:** az5922a@american.edu or Alasyaz123@gmail.com
